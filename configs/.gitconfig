@@ -1,0 +1,14 @@
+[user]  
+	name = Andrew McFague
+	email = redmumba@gmail.com
+[color] 
+    diff = always
+    branch = always
+    status = always
+    ui = always
+[pack]  
+    threads = 0
+[core]
+    excludesfile = ~/.gitignore
+[push]
+    default = current

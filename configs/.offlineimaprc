@@ -1,0 +1,28 @@
+[general]
+accounts = amcfague
+
+[Account amcfague]
+localrepository = Local
+remoterepository = Remote
+# Refresh every minute (decimal numbers possible)
+autorefresh = 0.5
+# Always do quick updates
+quick = -1
+
+[Repository Local]
+type = Maildir
+localfolders = ~/Mail/amcfague
+
+[Repository Remote]
+type = IMAP
+ssl = yes
+remotehost = exchange.wgen.net
+remoteuser = amcfague
+remotepassfile = ~/.offlineimap_passwd
+subscribedonly = Yes
+folderfilter = lambda foldername: foldername in ['INBOX', 'Sent Items', 'Deleted Items']
+nametrans = lambda foldername: re.sub(' ', '_', foldername)
+maxsize = 2000000
+maxage = 14
+maxconnections = 2
+expunge = yes
