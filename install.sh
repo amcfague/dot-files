@@ -22,6 +22,9 @@ function backup() {
         backup_path="${path}.${backup_date}.bak"
         mv ${path} ${backup_path}
     fi
+    if [[ -L ${path} ]]; then
+        rm ${path}
+    fi
 }
 
 # Exit on first error we see.
