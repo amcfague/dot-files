@@ -28,12 +28,14 @@ function backup() {
 set -e
 
 # First, initialize ALL the submodules
-git submodule update --recursive --init
+echo "* Updating all git submodules (recursively)."
+git submodule --quiet update --recursive --init
 
 CONFIGS=$(pwd)/configs
 DIRECTORIES=$(pwd)/directories
 
 # SETUP CONFIGURATION FILES
+echo "* Setting up config files."
 cd ${CONFIGS}
 find -type f | while read filename; do
     src_file=$(normalize $filename)
@@ -44,6 +46,7 @@ find -type f | while read filename; do
 done
 
 # SETUP BASE DIRECTORIES
+echo "* Setting up base directories."
 cd ${DIRECTORIES}
 find . -maxdepth 1 -type d -not -name . | while read directory; do
     src_dir=$(normalize ${directory})
@@ -52,3 +55,5 @@ find . -maxdepth 1 -type d -not -name . | while read directory; do
     backup "${dst_dir}"
     ln -fs ${src_dir} ${dst_dir}
 done
+
+echo "* Done."
