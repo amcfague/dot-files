@@ -20,7 +20,7 @@ function backup() {
     if [[ -e ${path} && ! -L ${path} ]]; then
         backup_date=$(date +%Y%m%d)
         backup_path="${path}.${backup_date}.bak"
-        echo mv ${path} ${backup_path}
+        mv ${path} ${backup_path}
     fi
 }
 
@@ -40,7 +40,7 @@ find -type f | while read filename; do
     dst_file=$(normalize ${HOME}/${filename})
 
     backup "${dst_file}"
-    echo ln -fs ${src_file} ${dst_file}
+    ln -fs ${src_file} ${dst_file}
 done
 
 # SETUP BASE DIRECTORIES
@@ -50,5 +50,5 @@ find . -maxdepth 1 -type d -not -name . | while read directory; do
     dst_dir=$(normalize ${HOME}/${directory})
 
     backup "${dst_dir}"
-    echo ln -fs ${src_dir} ${dst_dir}
+    ln -fs ${src_dir} ${dst_dir}
 done
