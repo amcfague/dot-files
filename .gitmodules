@@ -28,3 +28,6 @@
 [submodule "directories/.vim/.pathogen"]
 	path = directories/.vim/.pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "directories/.zsh-utils/zsh-git-prompt"]
+	path = directories/.zsh-utils/zsh-git-prompt
+	url = https://github.com/olivierverdier/zsh-git-prompt.git

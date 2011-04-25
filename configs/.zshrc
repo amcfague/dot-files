@@ -203,7 +203,7 @@ setopt prompt_subst
 #RPROMPT='$(get_git_prompt_info)'
 
 # Setup the prompt using olivierverdier's great setup
-source ~/.zsh/git-prompt/zshrc.sh
+source ~/.zsh-utils/zsh-git-prompt/zshrc.sh
 PROMPT="%{$fg[yellow]%}%n@%m %{$fg[white]%}%~ %{$reset_color%}\$ "
 
 export ANT_HOME=~/git/ant-1.7.0/ant-1.7.0
