@@ -1,6 +1,6 @@
 [user]  
-	name = Andrew McFague
-	email = redmumba@gmail.com
+    name = Andrew McFague
+    email = redmumba@gmail.com
 [color] 
     diff = always
     branch = always
@@ -10,5 +10,6 @@
     threads = 0
 [core]
     excludesfile = ~/.gitignore
+    editor = /usr/bin/vim
 [push]
     default = current
