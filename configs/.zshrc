@@ -35,17 +35,32 @@ export ORACLE_HOME=/usr/lib/oracle/10.2.0.4/client64
 export CVSROOT=':pserver:amcfague@repository.wgenhq.net:2401/home/cvs/repository'
 export TNS_ADMIN=/home/amcfague/.oracle
 export EDITOR=vim
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/home/amcfague/oracle"
-export PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=/home/amcfague/netbeans-6.9.1/bin:$PATH
-export PATH=/usr/local/bin:/usr/local/sbin:$ORACLE_HOME/bin:$PATH
 export DISPLAY=:0.0
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
+
+platform=$(uname)
+if [[ ${platform} == "Linux" ]]; then
+    PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/home/amcfague/oracle
+    PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH
+    PATH=/usr/local/sbin:$ORACLE_HOME/bin:$PATH
+
+    # Source virtualenvwrapper
+    source /usr/local/bin/virtualenvwrapper.sh
+
+    alias ls="ls --color=auto"
+elif [[ ${platform} == "Darwin" ]]; then
+    PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+
+    # Source virtualenvwrapper
+    source /usr/local/bin/virtualenvwrapper.sh
+
+    alias ls="ls -G"
+fi
+export PATH
 
 #------------------------------
 # Aliases
 #------------------------------
-alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias -- cd..='cd ..'
 alias -- cdwd='cd `pwd`'
@@ -203,11 +218,9 @@ setopt prompt_subst
 #RPROMPT='$(get_git_prompt_info)'
 
 # Setup the prompt using olivierverdier's great setup
+GIT_PROMPT_DIR=~/.zsh-utils/zsh-git-prompt
 source ~/.zsh-utils/zsh-git-prompt/zshrc.sh
 PROMPT="%{$fg[yellow]%}%n@%m %{$fg[white]%}%~ %{$reset_color%}\$ "
-
-export ANT_HOME=~/git/ant-1.7.0/ant-1.7.0
-export PATH=$ANT_HOME/bin:$PATH
 
 function rationalize-dot {
     if [[ $LBUFFER = *.. ]]; then
