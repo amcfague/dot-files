@@ -91,6 +91,7 @@ alias ag="ack-grep"
 # If there's no match for wildcard, just pass the wildcard
 #   i.e., "bar*", with no match, will echo itself
 setopt no_nomatch
+#
 #if [[ $STY = '' ]] then screen -R; fi
 
 #------------------------------
@@ -170,36 +171,28 @@ zstyle ':completion:*' ignore-parents parent pwd
 
 
 # SSH Completion
-#zstyle ':completion:*:scp:*' tag-order \
-#   files users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
-#zstyle ':completion:*:scp:*' group-order \
-#   files all-files users hosts-domain hosts-host hosts-ipaddr
-#zstyle ':completion:*:ssh:*' tag-order \
-#   users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
-#zstyle ':completion:*:ssh:*' group-order \
-#   hosts-domain hosts-host users hosts-ipaddr
 zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
 # Command Parameter Completion
-compctl -z fg
-compctl -j kill
-compctl -j disown
-compctl -u chown
-compctl -u su
-compctl -c sudo
-compctl -c which
-compctl -c type
-compctl -c hash
-compctl -c unhash
-compctl -o setopt
-compctl -o unsetopt
+compctl -A shift
 compctl -a alias
 compctl -a unalias
-compctl -A shift
+compctl -b bindkey
+compctl -c hash
+compctl -c sudo
+compctl -c type
+compctl -c unhash
+compctl -c which
+compctl -j disown
+compctl -j kill
+compctl -o setopt
+compctl -o unsetopt
+compctl -u chown
+compctl -u su
+compctl -v echo
 compctl -v export
 compctl -v unset
-compctl -v echo
-compctl -b bindkey
+compctl -z fg
 
 # Colors on completion me-ow
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -231,6 +224,3 @@ function rationalize-dot {
 }
 zle -N rationalize-dot
 bindkey . rationalize-dot
-
-export WORKON_HOME=~/.venvs
-source /usr/local/bin/virtualenvwrapper.sh
