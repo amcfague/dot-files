@@ -40,7 +40,7 @@ DIRECTORIES=$(pwd)/directories
 # SETUP CONFIGURATION FILES
 echo "* Setting up config files."
 cd ${CONFIGS}
-find -type f | while read filename; do
+find . -type f | while read filename; do
     src_file=$(normalize $filename)
     dst_file=$(normalize ${HOME}/${filename})
 
