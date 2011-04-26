@@ -2,11 +2,9 @@
 filetype off
 filetype plugin indent on
 
-let g:miniBufExplMapWindowNavArrows = 1 
-
 " Disable plugins
-let g:pathogen_disabled = []
-let g:syntastic_disabled_filetypes = ['python']
+"let g:pathogen_disabled = []
+"let g:syntastic_disabled_filetypes = ['python']
 
 " Load pathogen here
 call pathogen#runtime_append_all_bundles() 
