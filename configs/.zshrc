@@ -55,6 +55,9 @@ elif [[ ${platform} == "Darwin" ]]; then
     source /usr/local/bin/virtualenvwrapper.sh
 
     alias ls="ls -G"
+
+    # Add command line completion for brew (OSX only)
+    #source `brew --prefix`/Library/Contributions/brew_zsh_completion.zsh 
 fi
 export PATH
 
