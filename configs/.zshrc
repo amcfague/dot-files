@@ -217,6 +217,7 @@ setopt prompt_subst
 GIT_PROMPT_DIR=~/.zsh-utils/zsh-git-prompt
 source ~/.zsh-utils/zsh-git-prompt/zshrc.sh
 PROMPT="%{$fg[yellow]%}%n@%m %{$fg[white]%}%~ %{$reset_color%}\$ "
+RPROMPT='$(prompt_git_info)'
 
 function rationalize-dot {
     if [[ $LBUFFER = *.. ]]; then
