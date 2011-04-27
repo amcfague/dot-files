@@ -49,7 +49,7 @@ if [[ ${platform} == "Linux" ]]; then
 
     alias ls="ls --color=auto"
 elif [[ ${platform} == "Darwin" ]]; then
-    PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+    PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
     # Source virtualenvwrapper
     source /usr/local/bin/virtualenvwrapper.sh
