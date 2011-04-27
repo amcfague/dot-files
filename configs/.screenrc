@@ -1,0 +1,8 @@
+hardstatus on
+hardstatus alwayslastline
+hardstatus string '%{= kW}%-Lw%{= KW}%70>%n%f* %t%{= kW}%+Lw%< %{= kG}%-=%D %d %M %Y %c:%s%{-}'
+#hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "
+defscrollback 10000
+
+# Don't display copyright message
+startup_message off
