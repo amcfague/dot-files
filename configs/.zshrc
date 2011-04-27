@@ -34,7 +34,7 @@ typeset -U PATH
 export ORACLE_HOME=/usr/lib/oracle/10.2.0.4/client64
 export CVSROOT=':pserver:amcfague@repository.wgenhq.net:2401/home/cvs/repository'
 export TNS_ADMIN=/home/amcfague/.oracle
-export EDITOR=vim
+export EDITOR=/usr/bin/vim
 export DISPLAY=:0.0
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
 
