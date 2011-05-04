@@ -3,7 +3,7 @@ filetype off
 filetype plugin indent on
 
 " Disable plugins
-"let g:pathogen_disabled = []
+let g:pathogen_disabled = ['syntastic']
 "let g:syntastic_disabled_filetypes = ['python']
 
 " Load pathogen here
@@ -39,3 +39,4 @@ set number
 "
 " Set the width to wrap at 80
 set textwidth=79
+let g:pyflakes_use_quickfix = 0
