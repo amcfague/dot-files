@@ -2,10 +2,10 @@
     name = Andrew McFague
     email = amcfague@wgen.net
 [color] 
-    diff = always
-    branch = always
-    status = always
-    ui = always
+    diff = auto
+    branch = auto
+    status = auto
+    ui = auto
 [pack]  
     threads = 0
 [core]
