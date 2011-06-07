@@ -34,3 +34,6 @@
 [submodule "directories/.vim/bundle/gitv"]
 	path = directories/.vim/bundle/gitv
 	url = https://github.com/gregsexton/gitv.git
+[submodule "directories/.vim/bundle/tagbar"]
+	path = directories/.vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
