@@ -40,3 +40,16 @@ set number
 " Set the width to wrap at 80
 set textwidth=79
 let g:pyflakes_use_quickfix = 0
+
+" Put the tagbar on the left side
+let g:tagbar_left = 1
+" Single click function definitions instead of double
+let g:tagbar_singleclick = 1
+" Disable the help
+let g:tagbar_compact = 1
+" Map the tagbar toggle
+:map <F7> :TagbarToggle<CR>
+
+" Enable le mouse
+:set mouse=a
+

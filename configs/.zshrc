@@ -35,8 +35,8 @@ export ORACLE_HOME=/usr/lib/oracle/10.2.0.4/client64
 export CVSROOT=':pserver:amcfague@repository.wgenhq.net:2401/home/cvs/repository'
 export TNS_ADMIN=/home/amcfague/.oracle
 export EDITOR=/usr/bin/vim
-export DISPLAY=:0.0
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
+export TERM=xterm
 
 platform=$(uname)
 if [[ ${platform} == "Linux" ]]; then
@@ -109,7 +109,7 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 ZKBDFILE=~/.zkbd/$TERM
-
+#
 # So we can treat paths as such
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 
