@@ -245,3 +245,5 @@ export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 alias tmux="TERM=screen-256color tmux -2"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+alias dc='git --git-dir=$HOME/.dotfiles --work-tree=$HOME '
