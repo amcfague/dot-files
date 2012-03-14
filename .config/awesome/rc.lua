@@ -1,0 +1,1 @@
+/home/amcfague/.dot-files/configs/.config/awesome/rc.lua
