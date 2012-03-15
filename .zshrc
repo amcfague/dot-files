@@ -247,3 +247,28 @@ alias tmux="TERM=screen-256color tmux -2"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 alias dc='git --git-dir=$HOME/.dotfiles --work-tree=$HOME '
+function dcsa() {
+    # Verify that we have a URL and a location
+    if [[ $# -ne 2 ]]; then
+        echo "Usage: `basename $0` <repourl> <location>"
+        return 1
+    fi
+    repo_url="$1"
+    repo_path="$(readlink -f $2)"
+
+    [[ "$-" == *e* ]] && E_FLAG=1
+
+    # Exit early if we need to; also display which commands we're executing.
+    set +xe
+
+    # Clone it first; submodules have issues if we don't pre-clone when using a
+    # separate work-dir and git-dir
+    git clone ${repo_url} ${repo_path}
+
+    # Submodule commands need to be run from the root git, so temporarily move
+    # to the base directory before running any submodule commands.
+    pushd ./`dc rev-parse --show-cdup` > /dev/null
+    dc submodule add ${repo_url} ${repo_path}
+    popd > /dev/null
+    [[ -z $E_FLAG ]] || set -e
+}
