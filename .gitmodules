@@ -28,3 +28,6 @@
 [submodule "/home/amcfague/.vim/bundle/nerdcommenter"]
 	path = /home/amcfague/.vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "/home/amcfague/.config/awesome/themes"]
+	path = /home/amcfague/.config/awesome/themes
+	url = https://github.com/mikar/awesome-themes.git
