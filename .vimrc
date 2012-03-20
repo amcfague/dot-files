@@ -45,3 +45,4 @@ let g:pymode_doc_key = 'K'
 " Run linter on the fly
 let g:pymode_lint_onfly = 0
 "let g:pymode_lint_message = 0
+let g:pymode_folding = 0
