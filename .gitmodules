@@ -55,3 +55,6 @@
 [submodule ".config/awesome/themes"]
 	path = .config/awesome/themes
 	url = https://github.com/mikar/awesome-themes.git
+[submodule ".misc/solarized"]
+	path = .misc/solarized
+	url = https://github.com/altercation/solarized.git
