@@ -246,6 +246,16 @@ export LESS=' -R '
 alias tmux="TERM=screen-256color tmux -2"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+function _readlink() {
+    python -c "import os.path; print os.path.realpath('$1')"
+    return $?
+}
+
+function _relpath() {
+    python -c "import os.path; print os.path.relpath('$1', '$2')"
+    return $?
+}
+
 alias dc='git --git-dir=$HOME/.dotfiles --work-tree=$HOME '
 function dcsa() {
     # Verify that we have a URL and a location
@@ -253,8 +263,10 @@ function dcsa() {
         echo "Usage: `basename $0` <repourl> <location>"
         return 1
     fi
+
     repo_url="$1"
-    repo_path="$(readlink -f $2)"
+    git_base_dir="$(_readlink $(dc rev-parse --show-cdup))"
+    repo_path="$(_relpath $2 ${git_base_dir})"
 
     [[ "$-" == *e* ]] && E_FLAG=1
 
