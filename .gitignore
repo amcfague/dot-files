@@ -1,0 +1,5 @@
+.bash_history
+.dotfiles
+.virtualenvs
+.zcompdump
+.zsh/histfile
