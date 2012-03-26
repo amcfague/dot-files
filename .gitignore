@@ -3,3 +3,5 @@
 .virtualenvs
 .zcompdump
 .zsh/histfile
+.vim/backup
+.vim/tmp
