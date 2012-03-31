@@ -269,6 +269,7 @@ function dcsa() {
     repo_path="$(_relpath $2 ${git_base_dir})"
 
     [[ "$-" == *e* ]] && E_FLAG=1
+    [[ "$-" == *x* ]] && X_FLAG=1
 
     # Exit early if we need to; also display which commands we're executing.
     set +xe
@@ -283,4 +284,5 @@ function dcsa() {
     dc submodule add ${repo_url} ${repo_path}
     popd > /dev/null
     [[ -z $E_FLAG ]] || set -e
+    [[ -z $X_FLAG ]] || set -x
 }
