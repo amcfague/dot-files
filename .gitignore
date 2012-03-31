@@ -5,3 +5,14 @@
 .zsh/histfile
 .vim/backup
 .vim/tmp
+
+# OSX https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# vim https://github.com/github/gitignore/blob/master/Global/vim.gitignore
+.*.sw[a-z]
+*.un~
+Session.vim
